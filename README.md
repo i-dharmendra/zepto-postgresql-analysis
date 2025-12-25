@@ -10,7 +10,6 @@ This project analyzes Zepto product data using PostgreSQL to provide insights in
 
 ## Dataset
 - The full dataset used in this project contains **over 3,000 product records**.
-- A **sample dataset** (`sample_data.csv`) is also included for reference.
 - Columns include:
   - `sku_id` – Unique identifier for each SKU
   - `category` – Product category
