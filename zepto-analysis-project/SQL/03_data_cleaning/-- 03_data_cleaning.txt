@@ -1,0 +1,17 @@
+-- 03_data_cleaning
+-- Purpose: Clean invalid and inconsistent data
+
+-- Identify zero price records
+SELECT *
+FROM Zepto
+WHERE mrp = 0
+   OR discounted_selling_price = 0;
+
+-- Remove invalid price records
+DELETE FROM Zepto
+WHERE mrp = 0;
+
+-- Convert prices to rupees
+UPDATE Zepto
+SET mrp = mrp / 100.0,
+    discounted_selling_price = discounted_selling_price / 100.0;

@@ -1,0 +1,35 @@
+-- 02_data_quality_checks
+-- Purpose: Validate data completeness and quality
+
+-- Row count
+SELECT COUNT(*) FROM Zepto;
+
+-- Checking NULL values
+SELECT *
+FROM Zepto
+WHERE category IS NULL
+   OR name IS NULL
+   OR mrp IS NULL
+   OR discount_percent IS NULL
+   OR availabale_quantity IS NULL
+   OR discounted_selling_price IS NULL
+   OR weight_in_grams IS NULL
+   OR out_of_stock IS NULL
+   OR quantity IS NULL;
+
+-- Distinct categories
+SELECT DISTINCT category
+FROM Zepto
+ORDER BY category;
+
+-- Out of stock distribution
+SELECT out_of_stock, COUNT(*) AS product_count
+FROM Zepto
+GROUP BY out_of_stock;
+
+-- Duplicate product names (multiple SKUs)
+SELECT name, COUNT(sku_id) AS number_of_skus
+FROM Zepto
+GROUP BY name
+HAVING COUNT(sku_id) > 1
+ORDER BY number_of_skus DESC;

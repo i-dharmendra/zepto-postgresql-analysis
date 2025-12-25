@@ -1,0 +1,18 @@
+01_table_creation
+
+-- checking if table already exists
+DROP TABLE IF EXISTS Zepto;
+
+-- creating a table
+CREATE TABLE Zepto(
+	sku_id SERIAL PRIMARY KEY,
+	category VARCHAR(255),
+	name VARCHAR(255) NOT NULL,
+	mrp NUMERIC,
+	discount_percent NUMERIC,
+	availabale_quantity INTEGER,
+	discounted_selling_price NUMERIC,
+	weight_in_grams INTEGER,
+	out_of_stock BOOLEAN,
+	quantity INTEGER
+);
